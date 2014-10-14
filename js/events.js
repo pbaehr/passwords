@@ -18,6 +18,10 @@ function showNewPassword()
     var useDigits = $('#digits').is(':checked');
     var useSymbols = $('#symbols').is(':checked');
     var passwordLength = parseInt($('#num-chars').val(), 10);
-    var newPassword = generateRandomPassword(passwordLength, useAlphaLower, useAlphaUpper, useDigits, useSymbols);
+    var characterPool = buildPool(useAlphaLower, useAlphaUpper, useDigits, useSymbols);
+    var newPassword = generateRandomPassword(passwordLength, characterPool);
     $("#password").val(newPassword);
+
+    var entropy = calculateEntropy(passwordLength, characterPool);
+    console.debug(entropy);
 }
