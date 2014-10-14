@@ -17,7 +17,7 @@ function showNewPassword()
     var useAlphaUpper = $('#alpha-upper').is(':checked');
     var useDigits = $('#digits').is(':checked');
     var useSymbols = $('#symbols').is(':checked');
-    var passwordLength = 8;
+    var passwordLength = parseInt($('#num-chars').val(), 10);
     var newPassword = generateRandomPassword(passwordLength, useAlphaLower, useAlphaUpper, useDigits, useSymbols);
     $("#password").val(newPassword);
 }
