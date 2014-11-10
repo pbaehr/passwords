@@ -13,7 +13,7 @@
         <script src="js/services.js"></script>
         <script src="js/directives.js"></script>
     </head>
-    <body>
+    <body ng-app="passwordApp" ng-controller="MainController">
         <nav class="navbar navbar-default" role="navigation">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -24,14 +24,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Passwords</a>
+              <a class="navbar-brand" href="#/">Passwords</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Generator</a></li>
-                <li><a href="#">Info</a></li>
+                <li class="active"><a href="#/">Generator</a></li>
+                <li><a href="#/info">Info</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Link</a></li>
@@ -49,49 +49,7 @@
             </div>
           </div>
         </nav>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <form role="form">
-                      <div class="form-group">
-                        <div class="input-group">
-                          <input type="text" class="form-control" id="password">
-                          <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" id="refresh">
-                              <span class="glyphicon glyphicon-refresh"></span>
-                            </button>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                  <input type="number" id="num-chars" class="form-control" value="12">
-                                  <span class="input-group-addon">chars</span>
-                                </div>
-                            </div>
-                            <div class"col-md-8" style="padding-top: 5px;">
-                                <label class="checkbox-inline">
-                                  <input type="checkbox" checked id="alpha-lower"> Alpha Lower 
-                                </label>
-                                <label class="checkbox-inline">
-                                  <input type="checkbox" checked id="alpha-upper"> Alpha Upper 
-                                </label>
-                                <label class="checkbox-inline">
-                                  <input type="checkbox" checked id="digits"> Digits
-                                </label>
-                                <label class="checkbox-inline">
-                                  <input type="checkbox" checked id="symbols"> Symbols
-                                </label>
-                            </div>
-                        </div>
-                      </div>
-                    </form>
-                </div>
-                <div class="col-md-6">
-                </div>
-            </div>
+        <div class="container" ng-view>
         </div>
     </body>
 </html>

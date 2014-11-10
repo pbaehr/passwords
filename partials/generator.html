@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-6">
+    <form role="form">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" id="password" ng-model="randomPassword">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id="refresh" ng-click="generatePassword()">
+              <span class="glyphicon glyphicon-refresh"></span>
+            </button>
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="input-group">
+              <input type="number" id="num-chars" class="form-control" ng-model="numChars">
+              <span class="input-group-addon">chars</span>
+            </div>
+          </div>
+          <div class"col-md-8" style="padding-top: 5px;">
+            <label class="checkbox-inline">
+              <input type="checkbox" id="alpha-lower" ng-model="useAlphaLower"> Alpha Lower 
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="alpha-upper" ng-model="useAlphaUpper"> Alpha Upper 
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="digits" ng-model="useDigits"> Digits
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="symbols" ng-model="useSymbols"> Symbols
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6">
+  </div>
+</div>
