@@ -9,7 +9,7 @@ passwordServices.service('passwords', [function()
         var numeric = useNumeric ? '0123456789' : '';
         var symbols = useSymbols ? '`~!@#$%^&*()-_=+\\|]}[{;:\',./<>?' : '';
           return(alphaLower + alphaUpper + numeric + symbols);
-      }
+      };
 
       this.generateRandom = function(passwordLength, characterPool)
       {
@@ -24,10 +24,15 @@ passwordServices.service('passwords', [function()
           password += characterPool.charAt(Math.floor(Math.random() * characterPool.length))
         }
         return password;
-      }
+      };
 
       this.calculateEntropy = function(length, pool)
       {
-        return(length * Math.log(pool.length) / Math.log(2));
-      }
+        return (length * Math.log(pool.length) / Math.log(2));
+      };
+
+      this.avg_time_to_crack = function(entropy, seconds_per_guess)
+      {
+        return (0.5*Math.pow(2, entropy)) * seconds_per_guess;
+      };
     }]);
