@@ -18,12 +18,18 @@ passwordControllers.controller('GeneratorController',
 
       var generatePassword = function()
       {
-        var characterPool = passwords.buildPool($scope.useAlphaLower,
-                                                $scope.useAlphaUpper,
-                                                $scope.useDigits,
-                                                $scope.useSymbols);
-        $scope.randomPassword = passwords.generateRandom(
-          $scope.numChars, characterPool);
+        var pool = passwords.buildPool($scope.useAlphaLower,
+                                       $scope.useAlphaUpper,
+                                       $scope.useDigits,
+                                       $scope.useSymbols);
+        var numChars = $scope.numChars;
+
+        $scope.randomPassword = passwords.generateRandom(numChars, pool);
+
+        var entropy = passwords.calculateEntropy(numChars, pool);
+
+        $scope.avgTimeToCrack = passwords.avgTimeToCrack(entropy, .0001);
+
       };
 
       $scope.generatePassword = generatePassword;

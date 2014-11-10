@@ -31,8 +31,10 @@ passwordServices.service('passwords', [function()
         return (length * Math.log(pool.length) / Math.log(2));
       };
 
-      this.avg_time_to_crack = function(entropy, seconds_per_guess)
+      // Average time to crack a password, rounded to thousandths
+      this.avgTimeToCrack = function(entropy, seconds_per_guess)
       {
-        return (0.5*Math.pow(2, entropy)) * seconds_per_guess;
+        var seconds = (0.5*Math.pow(2, entropy)) * seconds_per_guess;
+        return Math.round(1000 * seconds) / 1000;
       };
     }]);
